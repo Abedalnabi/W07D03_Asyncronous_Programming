@@ -138,4 +138,16 @@ const  getUsers = async () => {
 };
 
 getUsers()
+//6
 
+
+const saveUsers = async () => {
+    const users = await getUsers();
+
+    fs.writeFile("users.txt", users, (err) => {
+        if (err) throw err;
+        console.log(users);
+    });
+    };
+
+    saveUsers();
