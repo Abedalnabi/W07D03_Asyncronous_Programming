@@ -46,10 +46,42 @@
 
     //5
     const getPostAsync = async (data) => {
-        
+
         let da = await axios 
         .get(`https://jsonplaceholder.typicode.com/posts/${data}/`)
 
         console.log(da.data)
         
     };
+
+    //practice 
+
+    //1
+    const appendToFile = (data) => {
+
+        fs.appendFile("data.txt",data,(err)=>{
+            if (err) throw err
+            console.log('The "data to append" was appended to file!');
+        })
+    };
+
+appendToFile("  Hi All")
+
+//2
+// const copyFile = (fileName) => {
+//     fs.copyFile("data.txt",fileName ,(err)=>{
+//         if (err) throw err;
+//     })
+// };
+
+
+const copyFile = (fileName) => {
+    function callback(err) {
+        if (err) throw err;
+        console.log('done');
+      }
+fs.copyFile(`./${fileName}.txt`, `copy_of_${fileName}.txt`, callback);
+
+};
+
+copyFile("data");
