@@ -120,13 +120,22 @@ const newPost = JSON.stringify({
 const updatePost = (id, data) => {
     axios
     .put(`https://jsonplaceholder.typicode.com/posts/${id}`, data)
-    .then((response)=>{
-        console.log(response)
+    .then((res)=>{
+        console.log(res)
     })
     .catch((err)=>{
-    throw err;
+    throw err
     })
 };
-
 updatePost(1, newPost);
+
+//5
+
+const  getUsers = async () => {
+    //or use try &cath
+    const response = await axios.get("https://jsonplaceholder.typicode.com/users")
+    console.log(response.data)
+};
+
+getUsers()
 
