@@ -80,8 +80,11 @@ const copyFile = (fileName) => {
         if (err) throw err;
         console.log('done');
     }
-fs.copyFile(`./${fileName}.txt`, `copy_of_${fileName}.txt`, callback);
+fs.copyFile(fileName, `copy_of_${fileName}.txt`, callback);
 
 };
 
-copyFile("data");
+copyFile("data.txt");
+
+//3
+
