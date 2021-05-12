@@ -88,3 +88,45 @@ copyFile("data.txt");
 
 //3
 
+// the API Expects JSON data to be sent and that's why `JSON.stringify` is used
+const post = JSON.stringify({
+  title: "JavaScript Basics",
+  body: "This post contains information about javaScript ",
+  // the id of the user who is going to create the post
+  userId: 1,
+});
+
+const createPost = (post) => {
+
+    axios
+    .post("https://jsonplaceholder.typicode.com/posts/",post)
+    .then((res)=>{
+        console.log(res.data)
+    }).catch((err)=>{
+        console.log(err)
+    })
+};
+
+createPost(post);
+
+//4
+const newPost = JSON.stringify({
+    id: 1,
+    title: "Updated Title",
+    body: "Updated body",
+    userId: 1,
+});
+
+const updatePost = (id, data) => {
+    axios
+    .put(`https://jsonplaceholder.typicode.com/posts/${id}`, data)
+    .then((response)=>{
+        console.log(response)
+    })
+    .catch((err)=>{
+    throw err;
+    })
+};
+
+updatePost(1, newPost);
+
