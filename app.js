@@ -79,7 +79,7 @@ const copyFile = (fileName) => {
     function callback(err) {
         if (err) throw err;
         console.log('done');
-      }
+    }
 fs.copyFile(`./${fileName}.txt`, `copy_of_${fileName}.txt`, callback);
 
 };
