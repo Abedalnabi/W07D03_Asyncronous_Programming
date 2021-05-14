@@ -1,5 +1,6 @@
     const fs = require("fs");
     const axios = require("axios");
+const { json } = require("express");
 
 
     /// pulase check
@@ -144,10 +145,15 @@ getUsers()
 const saveUsers = async () => {
     const users = await getUsers();
 
-    fs.writeFile("users.txt", users, (err) => {
+    fs.writeFile("users.txt", JSON.stringify(users.data), (err) => {
         if (err) throw err;
         console.log(users);
     });
     };
 
     saveUsers();
+
+
+    
+
+
